@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>Movie Ticket Booking</h2>
+
+  <p>Select your seats</p>
+
+  <div class="screen">SCREEN</div>
+
+  <!-- Display seats -->
+  <div class="seat-row" *ngFor="let row of seatRows">
+    <ng-container *ngFor="let seat of row; let i = index">
+      <button
+        class="seat"
+        [ngClass]="seat.status"
+        [disabled]="seat.status === 'booked'"
+        (click)="onSeatClick(seat)"
+      >
+        {{ seat.id }}
+      </button>
+
+      <!-- Gap after 5 seats -->
+      <span *ngIf="i === 4" class="aisle"></span>
+    </ng-container>
+  </div>
+
+  <!-- Booking summary -->
+  <div class="summary">
+    <p>Selected Seats: {{ selectedSeats.length }}</p>
+    <p>Total Price: ₹{{ totalPrice }}</p>
+
+    <button (click)="openModal()">Book Tickets</button>
+  </div>
+
+  <!-- Child modal -->
+  <app-booking-modal
+    *ngIf="showModal"
+    [selectedSeats]="selectedSeats"
+    [totalPrice]="totalPrice"
+    (confirmed)="confirmBooking($event)"
+    (closed)="closeModal()"
+  ></app-booking-modal>
+</div>

@@ -1,0 +1,27 @@
+<div class="modal-overlay">
+  <div class="modal">
+    <h2>Confirm Your Booking</h2>
+
+    <p>
+      Selected Seats:
+      <span *ngFor="let seat of selectedSeats; let last = last">
+        {{ seat.id }}<span *ngIf="!last">, </span>
+      </span>
+    </p>
+
+    <p>Total Amount: ₹{{ totalPrice }}</p>
+
+    <hr />
+
+    <label>Passenger Name</label>
+    <input type="text" [(ngModel)]="passengerName" placeholder="Enter passenger name" />
+
+    <label>Phone Number</label>
+    <input type="tel" [(ngModel)]="phoneNumber" placeholder="Enter 10-digit phone number" />
+
+    <div class="actions">
+      <button (click)="confirmBooking()">Confirm Booking</button>
+      <button (click)="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+.screen {
+  background: lightgray;
+  padding: 10px;
+  width: 300px;
+  margin: 20px auto;
+}
+
+.seat-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.seat {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.available {
+  background: lightgray;
+}
+
+.selected {
+  background: green;
+  color: white;
+}
+
+.booked {
+  background: red;
+  color: white;
+}
+
+.aisle {
+  width: 30px;
+}
+
+.summary {
+  margin-top: 20px;
+}
+
+button {
+  cursor: pointer;
+  padding: 8px 12px;
+}
